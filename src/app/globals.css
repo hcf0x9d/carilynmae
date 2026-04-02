@@ -1,26 +1,177 @@
 @import "tailwindcss";
 
+/**
+ * Color primitives (Figma)
+ * Neutrals, teal, coral — do not use directly in components; use semantic tokens.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primitive-neutral-100: #faf8f6;
+  --primitive-neutral-108: #f3efea;
+  --primitive-neutral-122: #e7e1db;
+  --primitive-neutral-549: #6b645e;
+  --primitive-neutral-1342: #2e2a27;
+  --primitive-teal-110: #d2f3f5;
+  --primitive-teal-234: #2fb5ba;
+  --primitive-teal-379: #238c90;
+  --primitive-coral-121: #ffdbcc;
+  --primitive-coral-170: #e2b8a6;
+  --primitive-coral-234: #c99a88;
+
+  /* Semantic tokens → primitives */
+  --semantic-background-primary: var(--primitive-neutral-100);
+  --semantic-background-secondary: var(--primitive-neutral-108);
+  --semantic-surface-default: var(--primitive-neutral-122);
+  --semantic-border-default: var(--primitive-neutral-122);
+  --semantic-text-secondary: var(--primitive-neutral-549);
+  --semantic-text-primary: var(--primitive-neutral-1342);
+  --semantic-accent-secondary-light: var(--primitive-teal-110);
+  --semantic-accent-secondary-base: var(--primitive-teal-234);
+  --semantic-accent-secondary-dark: var(--primitive-teal-379);
+  --semantic-accent-primary-base: var(--primitive-coral-121);
+  --semantic-accent-primary-mid: var(--primitive-coral-170);
+  --semantic-accent-primary-dark: var(--primitive-coral-234);
+
+  /* App aliases (map to semantics for existing Tailwind utilities) */
+  --background: var(--semantic-background-primary);
+  --background-elevated: var(--semantic-background-primary);
+  --background-section: var(--semantic-background-secondary);
+  --surface: var(--semantic-surface-default);
+  --foreground: var(--semantic-text-primary);
+  --foreground-muted: var(--semantic-text-secondary);
+  --accent: var(--semantic-accent-primary-dark);
+  --accent-hover: color-mix(
+    in srgb,
+    var(--semantic-accent-primary-dark) 82%,
+    var(--semantic-text-primary)
+  );
+  --accent-soft: var(--semantic-accent-primary-base);
+  --accent-border: var(--semantic-accent-primary-mid);
+  --border: var(--semantic-border-default);
+  --ring: var(--semantic-accent-secondary-base);
+  --footer-link: var(--semantic-accent-secondary-dark);
+  --footer-link-hover: var(--semantic-accent-secondary-base);
+  --hero-cta-fill: var(--semantic-accent-primary-base);
+  --hero-cta-text: var(--semantic-text-primary);
+  --shadow-soft: 0 1px 2px rgb(46 42 39 / 0.06),
+    0 10px 28px rgb(46 42 39 / 0.06);
+  --section-y: clamp(3.5rem, 8vw, 6rem);
+  --container-max: 72rem;
+  --nav-text: var(--semantic-text-secondary);
+  --nav-text-hover: var(--semantic-text-primary);
+  --nav-text-active: var(--semantic-text-primary);
+  --nav-decoration-hover: var(--semantic-accent-primary-mid);
+  --nav-decoration-active: var(--semantic-accent-primary-dark);
+
+  /**
+   * Typography — Figma. Font sizes in em (parent = body 1rem / 16px).
+   * Line heights as unitless multiples (same ratios as spec’s LH em column).
+   */
+  --type-h1-size: 3.5em;
+  --type-h1-leading: 1.2;
+  --type-h2-size: 2.5em;
+  --type-h2-leading: 1.3;
+  --type-h3-size: 1.75em;
+  --type-h3-leading: 1.4;
+  --type-h4-size: 1.125em;
+  --type-h4-leading: 1.5;
+  --type-body-size: 1em;
+  --type-body-leading: 1.7;
+  --type-small-size: 0.875em;
+  --type-small-leading: 1.7;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-elevated: var(--background-elevated);
+  --color-background-section: var(--background-section);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-border: var(--accent-border);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-footer-link: var(--footer-link);
+  --color-footer-link-hover: var(--footer-link-hover);
+  --color-accent-teal-muted: var(--semantic-accent-secondary-light);
+  --color-accent-teal: var(--semantic-accent-secondary-base);
+  --color-accent-teal-dark: var(--semantic-accent-secondary-dark);
+  --color-accent-coral-light: var(--semantic-accent-primary-base);
+  --color-accent-coral-mid: var(--semantic-accent-primary-mid);
+  --color-accent-coral-dark: var(--semantic-accent-primary-dark);
+  --shadow-soft: var(--shadow-soft);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-playfair), ui-serif, Georgia, serif;
+  --radius-card: 1rem;
+  --radius-button: 8px;
+  --radius-about-image: 1.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-leading);
+  font-weight: 400;
+}
+
+@utility font-display {
+  font-family: var(--font-playfair), ui-serif, Georgia, serif;
+  font-weight: 500;
+}
+
+@utility text-h1 {
+  font-size: var(--type-h1-size);
+  line-height: var(--type-h1-leading);
+}
+
+@utility text-h2 {
+  font-size: var(--type-h2-size);
+  line-height: var(--type-h2-leading);
+}
+
+@utility text-h3 {
+  font-size: var(--type-h3-size);
+  line-height: var(--type-h3-leading);
+}
+
+@utility text-h4 {
+  font-size: var(--type-h4-size);
+  line-height: var(--type-h4-leading);
+  font-weight: 700;
+}
+
+@utility text-body {
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-leading);
+  font-weight: 400;
+}
+
+@utility text-small {
+  font-size: var(--type-small-size);
+  line-height: var(--type-small-leading);
+  font-weight: 400;
+}
+
+@utility font-logo {
+  font-family: var(--font-logo-script), cursive;
+  font-weight: 400;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
 }
