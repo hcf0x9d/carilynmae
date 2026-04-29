@@ -228,7 +228,7 @@ export const samples: SamplesContent = {
     {
       id: "historical-fiction-dialog",
       title: "Historical Fiction Dialog Sample",
-      audioSrc: "/audio/historicalfiction-dialog.mp3",
+      audioSrc: "/audio/historicalfiction-dialogue.mp3",
       description: "A sample male and female interaction with mid-western accent in a historical fiction setting.",
       category: "audiobook",
     },
