@@ -5,17 +5,17 @@
  * Neutrals, teal, coral — do not use directly in components; use semantic tokens.
  */
 :root {
-  --primitive-neutral-100: #faf8f6;
-  --primitive-neutral-108: #f3efea;
-  --primitive-neutral-122: #e7e1db;
-  --primitive-neutral-549: #6b645e;
-  --primitive-neutral-1342: #2e2a27;
-  --primitive-teal-110: #d2f3f5;
-  --primitive-teal-234: #2fb5ba;
-  --primitive-teal-379: #238c90;
-  --primitive-coral-121: #ffdbcc;
-  --primitive-coral-170: #e2b8a6;
-  --primitive-coral-234: #c99a88;
+  --primitive-neutral-100: #F7F8FA;
+  --primitive-neutral-108: #EEEFF3;
+  --primitive-neutral-122: #E2E3E7;
+  --primitive-neutral-549: #66676B;
+  --primitive-neutral-1342: #292A2E;
+  --primitive-teal-110: #E3EEF9;
+  --primitive-teal-234: #4B648F;
+  --primitive-teal-379: #273854;
+  --primitive-coral-121: #FFE2E4;
+  --primitive-coral-170: #E08B90;
+  --primitive-coral-234: #BD6368;
 
   /* Semantic tokens → primitives */
   --semantic-background-primary: var(--primitive-neutral-100);
@@ -35,10 +35,10 @@
   --background: var(--semantic-background-primary);
   --background-elevated: var(--semantic-background-primary);
   --background-section: var(--semantic-background-secondary);
-  --surface: var(--semantic-surface-default);
+  --surface: var(--semantic-accent-secondary-light);
   --foreground: var(--semantic-text-primary);
   --foreground-muted: var(--semantic-text-secondary);
-  --accent: var(--semantic-accent-primary-dark);
+  --accent: var(--semantic-accent-primary-mid);
   --accent-hover: color-mix(
     in srgb,
     var(--semantic-accent-primary-dark) 82%,
@@ -51,7 +51,7 @@
   --footer-link: var(--semantic-accent-secondary-dark);
   --footer-link-hover: var(--semantic-accent-secondary-base);
   --hero-cta-fill: var(--semantic-accent-primary-base);
-  --hero-cta-text: var(--semantic-text-primary);
+  --hero-cta-text: var(--semantic-accent-primary-dark);
   --shadow-soft: 0 1px 2px rgb(46 42 39 / 0.06),
     0 10px 28px rgb(46 42 39 / 0.06);
   --section-y: clamp(3.5rem, 8vw, 6rem);

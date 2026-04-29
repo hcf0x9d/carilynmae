@@ -80,7 +80,7 @@ export function ServiceCard({ item, className }: ServiceCardProps) {
   return (
     <article
       className={cn(
-        "flex flex-col rounded-[var(--radius-card)] border border-border/80 p-6",
+        "flex flex-col rounded-(--radius-card) border border-border/80 p-6",
         className,
       )}
       data-service-id={item.id}
@@ -92,7 +92,7 @@ export function ServiceCard({ item, className }: ServiceCardProps) {
       >
         <ServiceIcon id={item.icon} />
       </div>
-      <h3 className="font-display text-h3 text-foreground">{item.title}</h3>
+      <h3 className="font-display text-h3 text-accent-coral-dark">{item.title}</h3>
       <p className="mt-2 flex-1 text-body text-foreground-muted">
         {item.description}
       </p>

@@ -13,20 +13,20 @@ export function ContactCtaSection({ content }: ContactCtaSectionProps) {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="bg-background-elevated py-[var(--section-y)]"
+      className="bg-accent-teal-dark py-[var(--section-y)]"
     >
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-small font-medium uppercase tracking-[0.16em] text-foreground-muted">
+          <p className="text-small font-medium uppercase tracking-[0.16em] text-background">
             {eyebrow}
           </p>
           <h2
             id="contact-heading"
-            className="mt-3 font-display text-h2 text-foreground"
+            className="mt-3 font-display text-h2 text-accent"
           >
             {heading}
           </h2>
-          <p className="mt-5 text-body text-foreground-muted">{description}</p>
+          <p className="mt-5 text-body text-background">{description}</p>
           <div className="mt-8 flex justify-center">
             <Button href={button.href} className="px-8 py-3.5">
               {button.label}

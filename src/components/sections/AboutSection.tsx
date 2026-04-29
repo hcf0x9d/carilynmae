@@ -14,7 +14,7 @@ export function AboutSection({ content }: AboutSectionProps) {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="bg-background-section py-[var(--section-y)]"
+      className="py-[var(--section-y)] pt-0"
     >
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
