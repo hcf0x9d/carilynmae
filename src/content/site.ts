@@ -221,7 +221,7 @@ export const samples: SamplesContent = {
     {
       id: "fiction-dialog",
       title: "Fiction Dialog Sample",
-      audioSrc: "/audio/fiction-dialog.mp3",
+      audioSrc: "/audio/fiction-dialogue.mp3",
       description: "A sample male and female interaction in a fiction setting.",
       category: "audiobook",
     },
