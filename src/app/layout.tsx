@@ -25,6 +25,10 @@ const meowScript = Meow_Script({
 
 export const metadata: Metadata = {
   manifest: "/site.webmanifest",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   title: {
     default: siteMeta.defaultSeo.title,
     template: `%s · ${siteMeta.name}`,
